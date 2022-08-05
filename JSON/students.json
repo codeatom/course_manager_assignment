@@ -1,0 +1,16 @@
+[ {
+  "id" : 1,
+  "name" : "Lucky",
+  "email" : "chris@lexicon.com",
+  "address" : "Karlskrona"
+}, {
+  "id" : 3,
+  "name" : "Christopher",
+  "email" : "chris@lexicon.com",
+  "address" : "lexico växjö"
+}, {
+  "id" : 2,
+  "name" : "Lucky",
+  "email" : "chris@lexicon.com",
+  "address" : "Karlskrona"
+} ]
