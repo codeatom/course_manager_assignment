@@ -1,6 +1,7 @@
 package se.lexicon.course_manager_assignment.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,7 +11,7 @@ public class Course {
     private String courseName;
     private LocalDate startDate;
     private int weekDuration;
-    private List<Student> students;
+    private List<Student> students = new ArrayList<>();
 
     public Course() {
     }

@@ -10,7 +10,7 @@ public class CourseView {
     private final String courseName;
     private final LocalDate startDate;
     private final int weekDuration;
-    private List<StudentView> students;
+    private final List<StudentView> students;
 
     public CourseView(int id, String courseName, LocalDate startDate, int weekDuration, List<StudentView> students) {
         this.id = id;

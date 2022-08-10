@@ -1,5 +1,6 @@
 package se.lexicon.course_manager_assignment.data.service.student;
 
+import se.lexicon.course_manager_assignment.model.Course;
 import se.lexicon.course_manager_assignment.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,13 +39,23 @@ public class StudentManager implements StudentService {
     @Override
     public StudentView findById(int id) {
         Student student = studentDao.findById(id);
-        return converters.studentToStudentView(student);
+
+        if(student != null){
+            return converters.studentToStudentView(student);
+        }
+
+        return null;
     }
 
     @Override
     public StudentView searchByEmail(String email) {
         Student student = studentDao.findByEmailIgnoreCase(email);
-        return converters.studentToStudentView(student);
+
+        if(student != null) {
+            return converters.studentToStudentView(student);
+        }
+
+        return null;
     }
 
     @Override
@@ -70,6 +81,15 @@ public class StudentManager implements StudentService {
     @Override
     public boolean deleteStudent(int id) {
         Student student = studentDao.findById(id);
-        return studentDao.removeStudent(student);
+
+        if(student != null) {
+            if(studentDao.removeStudent(student)){
+                for (Course course : courseDao.findAll()){
+                    course.getStudents().remove(student);
+                }
+            }
+        }
+
+        return false;
     }
 }

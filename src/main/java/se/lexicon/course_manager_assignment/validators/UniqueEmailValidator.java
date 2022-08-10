@@ -12,7 +12,7 @@ import javax.validation.ConstraintValidatorContext;
 @Component
 public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
 
-    private StudentDao studentDao;
+    private final StudentDao studentDao;
 
     @Autowired
     public UniqueEmailValidator(StudentDao studentDao) {

@@ -25,8 +25,8 @@ import java.util.stream.Collectors;
 
 @Controller
 public class CourseController {
-    private CourseService courseService;
-    private StudentService studentService;
+    private final CourseService courseService;
+    private final StudentService studentService;
     private static final Logger LOGGER = LoggerFactory.getLogger(CourseController.class);
 
     @Autowired
@@ -51,9 +51,7 @@ public class CourseController {
             }catch (DateTimeParseException ex){
                 LOGGER.warn(ex.toString());
             }
-
         }
-
 
         List<CourseView> courseViews = new ArrayList<>();
         String message = "Couldn't find any result that matches " + value;
