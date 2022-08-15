@@ -88,6 +88,8 @@ public class StudentManager implements StudentService {
                     course.getStudents().remove(student);
                 }
             }
+
+            return true;
         }
 
         return false;
