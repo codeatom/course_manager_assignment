@@ -150,6 +150,8 @@ public class CourseManagerTest {
         testObject.removeStudentFromCourse(courseView_1.getId(), student.getId()); //Removing just 1 student to course
         int numberOfStudentsRemoved = 1;
 
+        int s = testObject.findById(courseView_1.getId()).getStudents().size();
+
         //Assert
         assertEquals(testObject.findById(courseView_1.getId()).getStudents().size(), (numberOfStudentsAdded - numberOfStudentsRemoved));
     }
@@ -182,19 +184,19 @@ public class CourseManagerTest {
     void should_Find_And_Return_A_List_Of_Courses_In_Form_Of_CourseView_List_Using_A_Given_Student_Id_As_Search_Key() {
         //Arrange
         Student student = studentDao.createStudent("Chris Test", "co@provider.com", "Karlskrona Sweden");
-        List<CourseView> courseTakenByStudent = new ArrayList<>();
+        List<CourseView> coursesTakenByStudent = new ArrayList<>();
 
         testObject.addStudentToCourse(courseView_1.getId(), student.getId());
         testObject.addStudentToCourse(courseView_2.getId(), student.getId());
 
-        courseTakenByStudent.add(courseView_1);
-        courseTakenByStudent.add(courseView_2);
+        coursesTakenByStudent.add(courseView_1);
+        coursesTakenByStudent.add(courseView_2);
 
         //Act
         List<CourseView> courseViewList = testObject.findByStudentId(student.getId());
 
         //Assert
-        assertEquals(courseViewList.size(), courseTakenByStudent.size());
+        assertEquals(courseViewList.size(), coursesTakenByStudent.size());
     }
 
     @Test

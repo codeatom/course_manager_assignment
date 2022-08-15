@@ -146,11 +146,10 @@ public class StudentManagerTest {
     @Test
     void should_Find_And_Remove_A_Student_From_Student_List_Using_Student_Id_As_Search_Key() {
         //Arrange
-
-        //Act
         List<StudentView> studentViewList = new ArrayList<>();
         studentViewList.add(studentView_2);
 
+        //Act
         boolean deleted = testObject.deleteStudent(studentView_1.getId());
 
         //Assert
